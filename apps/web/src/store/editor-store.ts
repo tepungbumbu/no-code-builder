@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
+import { enableMapSet } from 'immer';
 import { projectAPI } from '@/lib/api';
 import { debounce } from '@/lib/utils';
 import type { 
@@ -9,6 +10,9 @@ import type {
   SaveStatus,
   EditorHistory 
 } from '@/lib/types';
+
+// Enable Immer MapSet support for Set/Map data structures
+enableMapSet();
 
 interface EditorState {
   // Data

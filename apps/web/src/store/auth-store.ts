@@ -81,3 +81,19 @@ export const useAuthStore = create<AuthState>((set) => ({
     set({ user });
   },
 }));
+
+// Auto-login with demo user for instant testing
+if (typeof window !== 'undefined') {
+  const token = getCookie('token');
+  
+  if (!token) {
+    // Auto-login as demo user
+    console.log('🎉 Auto-logging in as demo user (demo@example.com)');
+    useAuthStore.getState().login('demo@example.com', 'password123').catch(() => {
+      // If login fails, just check auth normally
+      useAuthStore.getState().checkAuth();
+    });
+  } else {
+    useAuthStore.getState().checkAuth();
+  }
+}

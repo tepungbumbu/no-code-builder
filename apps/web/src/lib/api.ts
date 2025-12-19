@@ -1,7 +1,7 @@
 import { getCookie } from './utils';
 import type { ApiErrorResponse } from './types';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+const API_BASE = ''; // Empty string uses Next.js API routes
 
 /**
  * API Error class
