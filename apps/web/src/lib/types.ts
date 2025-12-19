@@ -1,6 +1,6 @@
 export type PlanType = 'free' | 'pro' | 'enterprise';
 export type DeviceType = 'desktop' | 'tablet' | 'mobile';
-export type ElementType = 'heading' | 'text' | 'image' | 'button' | 'container' | 'grid';
+export type ElementType = 'heading' | 'text' | 'image' | 'button' | 'container' | 'grid' | 'spacer' | 'separator' | 'input' | 'form' | 'video' | 'gallery' | 'slider' | 'html' | 'icon' | 'map';
 export type SaveStatus = 'saved' | 'saving' | 'error';
 
 /**

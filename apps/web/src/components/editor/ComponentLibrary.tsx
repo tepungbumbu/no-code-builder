@@ -212,6 +212,7 @@ function getDefaultStyles(type: ElementType) {
         fontWeight: '700',
         color: '#0a0a0a',
         lineHeight: '1.2',
+        width: '100%',
       };
     case 'text':
       return {
@@ -219,11 +220,12 @@ function getDefaultStyles(type: ElementType) {
         fontSize: '14px',
         color: '#404040',
         lineHeight: '1.6',
+        width: '100%',
       };
     case 'image':
       return {
         ...baseStyles,
-        width: '400px',
+        width: '100%',
         height: 'auto',
         borderRadius: '8px',
       };
@@ -237,6 +239,7 @@ function getDefaultStyles(type: ElementType) {
         fontWeight: '500',
         cursor: 'pointer',
         border: 'none',
+        display: 'inline-block',
       };
     case 'container':
       return {
@@ -247,12 +250,14 @@ function getDefaultStyles(type: ElementType) {
         backgroundColor: '#fafafa',
         borderRadius: '8px',
         minHeight: '200px',
+        width: '100%',
       };
     case 'spacer':
       return {
         height: '40px',
         margin: '0',
         padding: '0',
+        width: '100%',
       };
     case 'separator':
       return {
@@ -260,6 +265,7 @@ function getDefaultStyles(type: ElementType) {
         backgroundColor: '#e5e5e5',
         margin: '20px 0',
         padding: '0',
+        width: '100%',
       };
     case 'grid':
       return {
@@ -268,6 +274,7 @@ function getDefaultStyles(type: ElementType) {
         gridTemplateColumns: '1fr 1fr',
         gap: '16px',
         minHeight: '200px',
+        width: '100%',
       };
     default:
       return baseStyles;

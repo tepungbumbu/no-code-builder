@@ -23,9 +23,9 @@ export const Canvas: React.FC = () => {
   }), [addElement]);
 
   const deviceWidths = {
-    desktop: '1280px',
-    tablet: '768px',
-    mobile: '375px',
+    desktop: '1024px', // Large
+    tablet: '640px',   // Medium
+    mobile: '360px',   // Small
   };
 
   return (

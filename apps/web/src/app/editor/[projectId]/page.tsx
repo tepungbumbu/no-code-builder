@@ -99,6 +99,7 @@ export default function EditorPage() {
             device={device}
             onDeviceChange={setDevice}
             onMenuClick={() => setIsIconSidebarOpen(!isIconSidebarOpen)}
+            isSidebarOpen={isIconSidebarOpen}
           />
           
           <EditorLayout

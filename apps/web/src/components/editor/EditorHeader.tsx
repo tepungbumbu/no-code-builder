@@ -10,6 +10,7 @@ interface EditorHeaderProps {
   device: DeviceType;
   onDeviceChange: (device: DeviceType) => void;
   onMenuClick: () => void;
+  isSidebarOpen?: boolean;
 }
 
 export const EditorHeader: React.FC<EditorHeaderProps> = ({
@@ -18,6 +19,7 @@ export const EditorHeader: React.FC<EditorHeaderProps> = ({
   device,
   onDeviceChange,
   onMenuClick,
+  isSidebarOpen = true,
 }) => {
   const router = useRouter();
 
@@ -39,7 +41,13 @@ export const EditorHeader: React.FC<EditorHeaderProps> = ({
       <div className="flex items-center space-x-3">
         <button 
           onClick={onMenuClick}
-          className="p-1.5 hover:bg-neutral-100 rounded-md transition-colors"
+          className={cn(
+            "p-1.5 rounded-md transition-colors",
+            isSidebarOpen 
+              ? "bg-primary-50 text-primary-600" 
+              : "text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900"
+          )}
+          title={isSidebarOpen ? "Refor sidebar" : "Show sidebar"}
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M3 4h14M3 10h14M3 16h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
