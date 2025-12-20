@@ -85,17 +85,21 @@ export interface ElementStyles {
   borderStyle?: string;
   borderColor?: string;
   borderRadius?: string;
+  borderBottom?: string;
   
   // Effects
   boxShadow?: string;
   opacity?: string;
   transform?: string;
   filter?: string;
+  backdropFilter?: string;
   
   // Other
   cursor?: string;
   overflow?: string;
   zIndex?: string;
+  minHeight?: string;
+  gridTemplateColumns?: string;
 }
 
 /**

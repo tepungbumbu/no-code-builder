@@ -155,6 +155,16 @@ export const EditorHeader: React.FC<EditorHeaderProps> = ({
           Preview
         </button>
         
+        <button 
+          onClick={() => router.push('/dashboard')}
+          className="flex items-center px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded-md transition-colors mr-2"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="mr-1.5">
+            <path d="M8.5 10.5L5 7l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Dashboard
+        </button>
+
         <div className="h-4 w-px bg-neutral-200 mx-1" />
         
         <button className="px-4 py-1.5 text-xs font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-md transition-colors">

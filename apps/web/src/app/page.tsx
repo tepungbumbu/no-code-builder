@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuthStore } from '@/store/auth-store';
 import { Button } from '@/components/ui/Button';
+import { LandingNavbar } from '@/components/LandingNavbar';
 
 export default function LandingPage() {
   const router = useRouter();
@@ -23,24 +24,8 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50 to-secondary-50">
       {/* Navigation */}
-      <nav className="clay-card mx-6 mt-6 px-8 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">N</span>
-            </div>
-            <span className="text-2xl font-bold text-neutral-900">NoCode Builder</span>
-          </div>
-          <div className="flex items-center space-x-4">
-            <Link href="/login">
-              <Button variant="ghost">Login</Button>
-            </Link>
-            <Link href="/register">
-              <Button variant="primary">Get Started</Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      {/* Navigation */}
+      <LandingNavbar />
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-20">

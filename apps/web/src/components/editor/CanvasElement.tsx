@@ -25,8 +25,7 @@ export const CanvasElement: React.FC<CanvasElementProps> = ({ element, selected 
     <div
       onClick={handleClick}
       className={cn(
-        'relative transition-all duration-200',
-        selected && 'ring-2 ring-primary-500 ring-offset-2'
+        'relative transition-all duration-200'
       )}
       style={styles as React.CSSProperties}
     >
@@ -86,43 +85,62 @@ export const CanvasElement: React.FC<CanvasElementProps> = ({ element, selected 
         </button>
       )}
 
-      {(element.type === 'container' || element.type === 'grid') && (
-        <div
-          style={{
+      {(element.type === 'container' || element.type === 'grid') && React.createElement(
+        element.props.tagName || 'div',
+        {
+          style: {
             display: styles.display,
             flexDirection: styles.flexDirection as any,
+            justifyContent: styles.justifyContent,
+            alignItems: styles.alignItems,
+            padding: styles.padding,
             gridTemplateColumns: styles.gridTemplateColumns,
             gap: styles.gap,
             backgroundColor: styles.backgroundColor,
             borderRadius: styles.borderRadius,
             minHeight: styles.minHeight,
+            borderBottom: styles.borderBottom,
+            backdropFilter: styles.backdropFilter as any,
+          },
+          className: 'relative',
+        },
+        element.children && element.children.length > 0 ? (
+          element.children.map((child) => (
+            <CanvasElement
+              key={child.id}
+              element={child}
+              selected={useEditorStore.getState().selectedIds.has(child.id)}
+            />
+          ))
+        ) : (
+          <div className="flex items-center justify-center text-neutral-400 text-sm py-4 border-2 border-dashed border-neutral-200 rounded-lg bg-neutral-50/50">
+            Drop elements here
+          </div>
+        )
+      )}
+
+      {element.type === 'icon' && (
+        <span 
+          className="material-symbols-outlined"
+          style={{
+            fontSize: styles.fontSize || '24px',
+            color: styles.color,
           }}
         >
-          {element.children && element.children.length > 0 ? (
-            element.children.map((child) => (
-              <CanvasElement
-                key={child.id}
-                element={child}
-                selected={useEditorStore.getState().selectedIds.has(child.id)}
-              />
-            ))
-          ) : (
-            <div className="flex items-center justify-center text-neutral-400 text-sm">
-              Drop elements here
-            </div>
-          )}
-        </div>
+          {element.props.content || 'star'}
+        </span>
       )}
 
       {/* Selection indicator with delete button */}
+      {/* Selection indicator with delete button */}
       {selected && (
-        <>
-          {/* Element label */}
-          <div className="absolute -top-8 left-0 bg-primary-600 text-white text-xs px-2 py-1 rounded-md font-medium shadow-md">
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none border-2 border-primary-500 z-50">
+          {/* Element label - Attached tab style */}
+          <div className="absolute top-0 left-0 -translate-y-full flex items-center bg-primary-500 text-white text-xs px-2 h-6 rounded-t-md font-medium pointer-events-auto">
             <span className="capitalize">{element.type}</span>
           </div>
           
-          {/* Delete button - Top Right, Red */}
+          {/* Delete button - Attached tab style on right */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -130,20 +148,20 @@ export const CanvasElement: React.FC<CanvasElementProps> = ({ element, selected 
                 useEditorStore.getState().deleteElement(element.id);
               }
             }}
-            className="absolute -top-8 -right-2 p-1.5 bg-danger-500 hover:bg-danger-600 text-white rounded-md shadow-md transition-colors"
+            className="absolute top-0 right-0 -translate-y-full flex items-center justify-center bg-danger-500 hover:bg-danger-600 text-white w-6 h-6 rounded-t-md transition-colors pointer-events-auto"
             title="Delete element"
           >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
               <path 
                 d="M3 3.5h8M5.5 3.5v-1a1 1 0 011-1h1a1 1 0 011 1v1m1.5 0v7a1 1 0 01-1 1h-5a1 1 0 01-1-1v-7" 
                 stroke="currentColor" 
-                strokeWidth="1.2" 
+                strokeWidth="1.5" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
               />
             </svg>
           </button>
-        </>
+        </div>
       )}
     </div>
   );

@@ -23,9 +23,15 @@ export const Canvas: React.FC = () => {
   }), [addElement]);
 
   const deviceWidths = {
-    desktop: '1024px', // Large
+    desktop: '1280px', // Large
     tablet: '640px',   // Medium
     mobile: '360px',   // Small
+  };
+
+  const getMarginTop = () => {
+    if (device === 'mobile') return 'mt-[160px]';
+    if (device === 'tablet') return 'mt-[65px]';
+    return 'mt-8';
   };
 
   return (
@@ -36,7 +42,7 @@ export const Canvas: React.FC = () => {
           width: deviceWidths[device],
           maxWidth: '100%',
         }}
-        className={`bg-white shadow-clay-lg rounded-clay min-h-[800px] relative transition-all duration-300 ${
+        className={`bg-white ${getMarginTop()} shadow-clay-lg rounded-clay min-h-[800px] relative transition-all duration-300 ${
           isOver ? 'ring-4 ring-primary-300' : ''
         }`}
         onClick={(e) => {

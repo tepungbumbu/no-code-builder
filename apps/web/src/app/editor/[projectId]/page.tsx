@@ -20,6 +20,7 @@ export default function EditorPage() {
   const projectId = params.projectId as string;
   
   const [isIconSidebarOpen, setIsIconSidebarOpen] = useState(true); // Visible by default
+  const [isRightPanelOpen, setIsRightPanelOpen] = useState(true); // Visible by default
   
   const {
     project,
@@ -108,6 +109,8 @@ export default function EditorPage() {
             canvas={<Canvas />}
             rightPanel={<PropertiesPanel />}
             isIconSidebarOpen={isIconSidebarOpen}
+            isRightPanelOpen={isRightPanelOpen}
+            onToggleRightPanel={() => setIsRightPanelOpen(!isRightPanelOpen)}
           />
         </div>
       </DndProvider>
