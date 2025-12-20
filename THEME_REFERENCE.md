@@ -1,54 +1,59 @@
-# Design Theme Reference
+# Design Theme Reference 🎨 
 
+This document explains the "Look and Feel" of our app. It guides us on which colors and styles to use so everything looks consistent.
+
+## 🖼️ Reference Image
+*(This is the image we are trying to copy)*
 ![Reference Image](/Users/ivan/.gemini/antigravity/brain/7545d9c5-bc87-4437-8854-d3a8e26a97ec/uploaded_image_1766163811820.png)
 
-## Extracted Color Palette
+## 🎨 Color Palette (The Colors We Use)
 
-### Primary Colors
-- **Brand Purple**: `#6C5CE7` (Main action color)
-- **Purple Hover**: `#5B4EFF` 
-- **Purple Active**: `#4E3FD9`
+We use specific codes for colors (Hex codes). Here is how you use them in our code (using **TailwindCSS**).
 
-### Backgrounds
-- **Canvas**: `#FFFFFF` (Pure white)
-- **Panel**: `#F7F7F7` (Very light gray)
-- **Surface**: `#FAFAFA` (Off-white)
+### Primary Colors (Purple)
+This is our main brand color. Use it for important buttons and links.
+- **Code**: `bg-primary-600` (Background) or `text-primary-600` (Text)
+- **Hex**: `#6C5CE7`
+- **When to use**: "Login" button, "Save" button, Active links.
 
-### Borders
-- **Subtle**: `#EBEBEB` (Very light)
-- **Default**: `#E5E5E5` (Light)
-- **Strong**: `#D1D5DB` (Medium gray)
+### Background Colors
+- **Canvas White**: `bg-white` (The main page background)
+- **Off-White**: `bg-neutral-50` (Subtle backgrounds, like the sidebar)
+- **Card Background**: `bg-white` + `shadow-sm` (For boxes/cards)
 
-### Text
-- **Primary**: `#0A0A0A` (Almost black)
-- **Secondary**: `#6B7280` (Medium gray)
-- **Tertiary**: `#9CA3AF` (Light gray)
+### Text Colors
+- **Main Text**: `text-neutral-900` (Almost black - easy to read)
+- **Secondary Text**: `text-neutral-600` (Gray - for descriptions or less important text)
 
-## Design Characteristics
+## 📐 Design rules
 
-### Style
-- **Flat design** - No gradients, no shadows (or very subtle)
-- **Minimal borders** - 1px, light gray
-- **Clean spacing** - Consistent padding/margins
-- **Modern sans-serif** typography
+### 1. Spacing
+We don't crowd things together. We give them room to breathe.
+- Use `p-4` or `p-6` for padding inside cards.
+- Use `gap-4` for spaces between items.
 
-### Button Styles
-**Primary**: Purple filled, white text, no border
-**Secondary**: White/transparent, border, dark text
+### 2. Rounded Corners
+We like soft corners, not sharp ones.
+- Use `rounded-lg` (Large rounded) or `rounded-xl` for cards and buttons.
 
-### Layout
-- Left sidebar: Navigation/elements
-- Top bar: Tools and actions
-- Center: Canvas area
-- Clean grid system
+### 3. Shadows
+We use very soft shadows to make things "pop" a little bit.
+- Use `shadow-sm` (Small shadow) for cards.
+- Use `shadow-md` (Medium shadow) for dropdown menus.
 
-### Shadows
-- None or extremely subtle
-- Maximum: `0 2px 4px rgba(0, 0, 0, 0.05)`
+## 💡 How to Read Code Styles
 
-### Border Radius
-- Small: 4-6px
-- Medium: 6-8px
-- Large: 12px
+If you see this code:
+```tsx
+<button className="bg-primary-600 text-white rounded-lg p-2">
+  Click Me
+</button>
+```
+It translates to:
+- `bg-primary-600`: Make background Purple.
+- `text-white`: Make text White.
+- `rounded-lg`: Make corners rounded.
+- `p-2`: Add some padding (space) inside the button.
 
-This theme prioritizes **clarity, simplicity, and usability** over decoration.
+---
+**Summary**: Keep it clean, simple, and purple! 💜

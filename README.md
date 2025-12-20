@@ -1,164 +1,87 @@
-# NoCode Website Builder
+# NoCode Website Builder 🚀
 
-A complete no-code website builder with visual drag-and-drop editor, built with Next.js 14+, TailwindCSS, and Turborepo monorepo architecture.
+Welcome! This is a **No-Code Website Builder** application. It allows you to build websites visually by dragging and dropping elements, just like playing with building blocks. You don't need to know how to write code to use the builder, but this project itself is code that you can run and modify!
 
-## 🎨 Design
+## 🌱 What is this project?
 
-- **Style**: Flat Professional & Minimalist
-- **Color Palette**: Modern, high-contrast, professional look
-  - Primary Purple: `#6C5CE7`
-  - Backgrounds: Clean White (`#FFFFFF`) & Soft Grays (`#FAFAFA`, `#F7F7F7`)
-  - Text: Dark Stark (`#0A0A0A`) & Muted Secondary (`#6B7280`)
-- **Features**: Crisp borders, subtle shadows, focus on content hierarchy
+This is a modern web application built with **Next.js**. Think of it as a factory that creates websites.
+- **Frontend**: The visual part you see and interact with (built with React & Tailwind CSS).
+- **Backend**: The logic behind the scenes (simulated in this project to make it easy to run).
 
-## 🚀 Tech Stack
+## 🎨 Layout & Design
 
-- **Framework**: Next.js 14+ with App Router
-- **Language**: TypeScript
-- **Styling**: TailwindCSS with custom design tokens
-- **State Management**: Zustand with immer middleware
-- **Validation**: Zod schemas
-- **Drag & Drop**: React DND
-- **Animations**: Framer Motion
-- **Icons**: SVG & Unicode
+We use a simple, clean design style:
+- **Colors**: Mostly white and light gray, with a nice **Purple** (`#6C5CE7`) for important buttons.
+- **Style**: "Flat" design, meaning simple shapes and clear text without too many fancy 3D effects.
 
-## 📦 Project Structure
+## 🛠️ Technology Used (For Developers)
+
+If you are learning to code, here are the main tools we used:
+- **Next.js 14**: The main framework (like the engine of a car).
+- **TypeScript**: A version of JavaScript that helps catch errors (like a spellchecker for code).
+- **TailwindCSS**: Used for styling (colors, spacing, fonts).
+- **Zustand**: Manages the "memory" of the app (like remembering who is logged in).
+- **Turborepo**: Helps organize the project files efficiently.
+
+## 📂 Project folder map
+
+Here is a simplified map of where things are:
 
 ```
 no-code-builder/
 ├── apps/
-│   └── web/                # Next.js frontend application
+│   └── web/                # The main application code lives here!
 │       ├── src/
-│       │   ├── app/        # Next.js app router pages
-│       │   ├── components/ # React components
-│       │   ├── lib/        # Utilities, types, API client
-│       │   └── store/      # Zustand stores
-│       └── package.json
-├── turbo.json
-├── pnpm-workspace.yaml
-└── package.json
+│       │   ├── app/        # The different pages (Home, Login, Dashboard)
+│       │   ├── components/ # The building blocks (Buttons, Navbar, Editor elements)
+│       │   └── store/      # Where we keep track of data (User info, Project list)
 ```
 
-## 🛠️ Getting Started
+## 🚀 How to Run It
 
 ### Prerequisites
+You need **Node.js** installed on your computer. It's like the runtime environment needed to play a video game.
 
-- Node.js 18+ 
-- pnpm 9+
+### Installation Steps
+1. Open your terminal (Command Prompt or Terminal app).
+2. Go to the project folder:
+   ```bash
+   cd /Applications/XAMPP/xamppfiles/htdocs/no-code-builder
+   ```
+3. Install the necessary packages (this downloads the tools):
+   ```bash
+   npm install
+   # OR
+   pnpm install
+   ```
+4. Start the app:
+   ```bash
+   npm run dev
+   # OR
+   pnpm dev
+   ```
+5. Open your web browser and go to: `http://localhost:3000`
 
-### Installation
+## 📱 Features You Can Try
 
-```bash
-# Install dependencies
-cd /Applications/XAMPP/xamppfiles/htdocs/no-code-builder
-pnpm install
+### ✅ Core Features
+- **Responsive Navbar**: The menu works on phone and computer screens!
+- **Drag & Drop**: Pick an element and drop it onto the canvas.
+- **Auto-save**: The app saves your work automatically.
+- **Mobile/Tablet View**: See how your site looks on different devices.
 
-# Start development server
-pnpm dev
-```
+### ✅ User Journey
+1. **Landing Page**: The simplified welcome page.
+2. **Register/Login**: Create a fake account (it just lives in your browser's memory).
+3. **Dashboard**: Manage your website projects.
+4. **Editor**: The magic place where you build your site!
 
-The application will be available at `http://localhost:3000`
+## 🔧 Useful Commands
 
-### Environment Variables
-
-Copy `.env.example` to `.env.local`:
-
-```bash
-cd apps/web
-cp .env.example .env.local
-```
-
-Edit `.env.local`:
-```
-NEXT_PUBLIC_API_URL=http://localhost:3000/api
-```
-
-## 📱 Features Implemented
-
-### ✅ Core Infrastructure
-- [x] Turborepo monorepo setup
-- [x] Next.js 14+ with TypeScript
-- [x] TailwindCSS with Flat Design tokens
-- [x] Zustand stores (auth, projects, editor)
-- [x] Comprehensive Type definitions and Zod validation
-- [x] In-memory data storage (simulated backend)
-
-### ✅ Authentication & Dashboard
-- [x] Register & Login pages with validation
-- [x] Protected routes & Cookie-based auth
-- [x] Onboarding flow with templates
-- [x] Dashboard with project management (Create/Delete)
-- [x] Subscription plan enforcement & Upgrade modal
-
-### ✅ Visual Editor
-- [x] **Drag & Drop Canvas**: Free-flow editing experience
-- [x] **Responsive Controls**: Switch between Desktop (1024px), Tablet (640px), and Mobile (360px)
-- [x] **Component Library**: Categorized elements (Basic, Layout, Media, Interactive)
-- [x] **Properties Panel**: Edit styles, content, and layout properties
-- [x] **Layers & Navigation**: Tree view of page structure
-- [x] **History**: Undo/Redo functionality
-- [x] **Zoom Controls**: Zoom in/out of the canvas
-
-### ✅ Publishing & Export
-- [x] **Publish**: Live preview of the built page
-- [x] **Export**: Generate clean HTML/CSS code
-- [x] **Auto-save**: Changes saved automatically
-
-## 🎯 User Flow
-
-1. **Landing** (`/`) → Check auth → Redirect to `/dashboard` if logged in
-2. **Register** (`/register`) → Create account → Redirect to `/onboarding`
-3. **Onboarding** (`/onboarding`) → Choose template → Create project → Redirect to `/editor/{id}`
-4. **Dashboard** (`/dashboard`) → View/create/delete projects
-5. **Editor** (`/editor/{id}`) → Build your website visually
-6. **Publish/Export** → Share your creation
-
-## 🎨 Design System
-
-### Design Tokens
-- **Primary**: `bg-primary-600` (Purple)
-- **Surface**: `bg-white` / `bg-neutral-50`
-- **Borders**: `border-neutral-200` (Subtle gray)
-- **Radius**: `rounded-md` (6px default)
-
-### Responsive Breakpoints
-- **Mobile**: 360px
-- **Tablet**: 640px
-- **Desktop**: 1024px
-
-## 📝 API Structure (Internal/Mock)
-
-The application uses Next.js Route Handlers to simulate a backend:
-
-```
-POST   /api/auth/register
-POST   /api/auth/login
-GET    /api/auth/me
-
-GET    /api/projects
-POST   /api/projects
-GET    /api/projects/:id
-PUT    /api/projects/:id      # Auto-save
-POST   /api/projects/:id/publish
-POST   /api/projects/:id/export
-```
-
-## 🔧 Development Commands
-
-```bash
-# Run dev server
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Run linter
-pnpm lint
-
-# Check types
-pnpm type-check
-```
+These are commands you type in the terminal:
+- `npm run dev`: **Starts the app**. Use this when you want to work on it.
+- `npm run build`: **Builds the app**. Prepares it for the real internet (production).
+- `npm run lint`: **Checks code**. Finds potential mistakes in your code.
 
 ## 📄 License
-
-MIT
+MIT License (Free to use and modify!)
